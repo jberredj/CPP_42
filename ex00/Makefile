@@ -6,7 +6,7 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/02 15:05:18 by jberredj          #+#    #+#              #
-#    Updated: 2022/01/02 15:17:28 by jberredj         ###   ########.fr        #
+#    Updated: 2022/01/05 11:26:39 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 SRCS		=	megaphone.cpp
-OBJS		=	megaphone.o
+OBJS		=	$(SRCS:.cpp=.o)
 
 all:$(NAME)
 
@@ -31,3 +31,5 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+
+re: fclean all
