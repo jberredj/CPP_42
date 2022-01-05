@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 16:09:25 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/05 17:58:02 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/05 18:04:55 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,9 @@ void	Account::makeDeposit( int deposit )
 bool	Account::makeWithdrawal( int withdrawal )
 {
 	Account::_displayTimestamp();
-	td::cout << "index:" << this->_accountIndex << ";";
+	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "p_amount:" << this->_amount << ";";
-	std::cout << "withdrawal:"
+	std::cout << "withdrawal:";
 	if (this->_amount < withdrawal)
 	{
 		std::cout << "refused" << std::endl;
@@ -115,7 +115,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 	Account::_totalNbWithdrawals++;
 	std::cout << withdrawal << ";";
 	std::cout << "amount:" << this->_amount << ";";
-	std::cout "<< nb_withdrawals:" << this->_nbWithdrawals;
+	std::cout << "nb_withdrawals:" << this->_nbWithdrawals;
 	std::cout << std::endl;
 	return (true);
 }
