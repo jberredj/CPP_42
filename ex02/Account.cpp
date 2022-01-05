@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 16:09:25 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/05 16:49:11 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/05 16:54:17 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,12 @@ int	Account::getNbWithdrawals( void )
 
 void	Account::displayAccountsInfos( void )
 {
-	
+	Account::_displayTimestamp();
+	std::cout << "accounts:" << Account::_nbAccounts << ";";
+	std::cout << "total:" << Account::_totalAmount << ";";
+	std::cout << "deposits:" << Account::_totalNbDeposits << ";";
+	std::cout << "withdrawals:" << Account::_totalNbWithdrawals << ";";
+	std::cout << std::endl;
 }
 
 void	Account::_displayTimestamp( void )
@@ -72,11 +77,6 @@ void	Account::_displayTimestamp( void )
 		<<std::setw(2) << now_utc.tm_min
 		<<std::setw(2) << now_utc.tm_sec
 		<< "] ";
-}
-
-void	Account::displayTimestamp( void )
-{
-	Account::_displayTimestamp();
 }
 
 /*
