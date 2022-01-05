@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 16:09:25 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/05 17:52:49 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/05 17:58:02 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,16 +140,30 @@ void	Account::displayStatus( void ) const
 ** Constructors and destructor
 */
 Account::Account( void )
+: _accountIndex(_nbAccounts++), _amount(0), _nbDeposits(0), _nbWithdrawals(0)
 {
-	
+	Account::_displayTimestamp();
+	std::cout << "index:" << this->_accountIndex << ";";
+	std::cout << "amount:0;";
+	std::cout << "created";
+	std::cout << std::endl;
 }
 
 Account::Account( int initial_deposit )
+: _accountIndex(_nbAccounts++), _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0)
 {
-	
+	Account::_totalAmount += initial_deposit;
+	Account::_displayTimestamp();
+	std::cout << "index:" << this->_accountIndex << ";";
+	std::cout << "amount:" << initial_deposit << ";";
+	std::cout << "created";
+	std::cout << std::endl;
 }
-
 Account::~Account( void )
 {
-
+	Account::_displayTimestamp();
+	this->_nbAccounts--;
+	std::cout << "index:" << this->_accountIndex << ";";
+	std::cout << "amount:" << this->_amount << ";";
+	std::cout << "closed" << std::endl;
 }
