@@ -6,7 +6,7 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/02 15:05:18 by jberredj          #+#    #+#              #
-#    Updated: 2022/01/06 12:31:02 by jberredj         ###   ########.fr        #
+#    Updated: 2022/01/06 14:51:08 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJS		=	$(SRCS:.cpp=.o)
 all:$(NAME)
 
 $(NAME):$(OBJS)
-	$(CXX) $(CXXFLAGS) $? -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJS):$(SRCS)
 	$(CXX) $(CXXFLAGS) -c $?
