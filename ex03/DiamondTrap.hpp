@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 20:53:06 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/10 21:24:49 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/11 11:48:12 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,12 @@ private:
 	std::string	_name;
 public:
 				DiamondTrap(void);
+				DiamondTrap(const DiamondTrap &src);
 				DiamondTrap(const std::string name);
 				~DiamondTrap(void);
+
+	DiamondTrap	&operator=(const DiamondTrap &src);
+
 	void		whoAmI(void);
 };
 

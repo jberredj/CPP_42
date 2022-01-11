@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 20:37:32 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/10 20:44:08 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/11 11:44:16 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,30 @@ FragTrap::FragTrap(void)
 	std::cout << "FragTrap default constructor" << std::endl;
 }
 
+FragTrap::FragTrap(const FragTrap &src)
+{
+	this->_name = src._name;
+	this->_hit_points = src._hit_points;
+	this->_energy_points = src._energy_points ;
+	this->_attack_damage = src._attack_damage;
+	this->_total_energy = src._energy_points;
+	std::cout << "FragTrap copy constructor" << std::endl;
+}
+
 FragTrap::~FragTrap()
 {
 	std::cout << "FragTrap destructor on " << this->_name << std::endl;
+}
+
+FragTrap	&FragTrap::operator=(const FragTrap &src)
+{
+	this->_name = src._name;
+	this->_hit_points = src._hit_points;
+	this->_energy_points = src._energy_points ;
+	this->_attack_damage = src._attack_damage;
+	this->_total_energy = src._energy_points;
+	std::cout << "FragTrap operator= called" << std::endl;
+	return (*this);
 }
 
 void	FragTrap::highFivesGuys(void)

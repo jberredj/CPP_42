@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 20:19:15 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/10 20:33:52 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/11 11:28:43 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ ScavTrap::ScavTrap(const std::string name)
 	return;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &src)
+{
+	this->_name = src._name;
+	this->_hit_points = src._hit_points;
+	this->_energy_points = src._energy_points;
+	this->_attack_damage = src._attack_damage;
+	this->_total_energy = src._total_energy;
+	std::cout << "ScavTrap copy constructor called" << std::endl;
+}
+
 ScavTrap::ScavTrap(void)
 {
 	this->_hit_points = 100;
@@ -37,6 +47,23 @@ ScavTrap::ScavTrap(void)
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap destructor on " << this->_name << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap &src)
+{
+	this->_name = src._name;
+	this->_hit_points = src._hit_points;
+	this->_energy_points = src._energy_points;
+	this->_attack_damage = src._attack_damage;
+}
+
+ScavTrap	&ScavTrap::operator=(const ScavTrap &src)
+{
+	this->_name = src._name;
+	this->_hit_points = src._hit_points;
+	this->_energy_points = src._energy_points;
+	this->_attack_damage = src._attack_damage;
+	return (*this);
 }
 
 void	ScavTrap::guardGate(void)

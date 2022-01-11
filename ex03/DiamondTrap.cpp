@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 20:52:57 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/10 21:26:15 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/11 11:53:22 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ DiamondTrap::DiamondTrap(const std::string name)
 	return;
 }
 
+DiamondTrap::DiamondTrap(const DiamondTrap &src)
+{
+	ClapTrap::operator=(src);
+	this->_name = src._name;
+	std::cout << "DiamondTrap copy constructor" << std::endl;
+}
+
 DiamondTrap::DiamondTrap(void)
 {
 	ClapTrap::_name =  "Default_clap_name";
@@ -39,6 +46,13 @@ DiamondTrap::DiamondTrap(void)
 DiamondTrap::~DiamondTrap()
 {
 	std::cout << "DiamondTrap destructor on " << this->_name << std::endl;
+}
+
+DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &src)
+{
+	ClapTrap::operator=(src);
+	this->_name = src._name;
+	std::cout << "DiamondTrap operator= called" << std::endl;
 }
 
 void	DiamondTrap::whoAmI(void)

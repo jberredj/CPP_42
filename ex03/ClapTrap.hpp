@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:56:16 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/10 20:29:21 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/11 11:46:30 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ protected:
 	int			_attack_damage;
 public:
 				ClapTrap(void);
+				ClapTrap(const ClapTrap &src);
 				ClapTrap(std::string name);
 				~ClapTrap(void);
 

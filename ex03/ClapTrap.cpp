@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 19:09:42 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/10 20:02:42 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/11 11:46:16 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@ ClapTrap::ClapTrap(void)
 	_total_energy(_energy_points), _attack_damage(0)
 {
 	std::cout << "ClapTrap default constructor" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &src)
+: _name(src._name), _hit_points(src._hit_points), 
+	_energy_points(src._energy_points),
+	_total_energy(src._total_energy),
+	_attack_damage(src._attack_damage)
+{
+	std::cout << "ClapTrap copy constructor" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
