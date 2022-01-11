@@ -14,17 +14,28 @@
 #include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal(void)
-: type("An animal")
+: type("A Wrong animal")
 {
+}
+
+WrongAnimal::WrongAnimal(const WrongAnimal &src)
+{
+	this->type = src.type;
 }
 
 WrongAnimal::~WrongAnimal()
 {
 }
 
+WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &src)
+{
+	this->type = src.type;
+	return (*this);
+}
+
 void		WrongAnimal::makeSound(void) const
 {
-	std::cout << "An animal sound" << std::endl;
+	std::cout << "*Strange sound*" << std::endl;
 }
 
 const std::string	&WrongAnimal::getType(void) const

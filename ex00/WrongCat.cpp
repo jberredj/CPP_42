@@ -18,11 +18,23 @@ WrongCat::WrongCat(void)
 	this->type = std::string("WrongCat");
 }
 
+WrongCat::WrongCat(const WrongCat &src)
+{
+	this->type = src.type;
+}
+
 WrongCat::~WrongCat()
 {
 }
 
+WrongCat	&WrongCat::operator=(const WrongCat &src)
+{
+	this->type = src.type;
+	return (*this);
+}
+
+
 void		WrongCat::makeSound(void) const
 {
-	std::cout << "Miaou..." << std::endl;
+	std::cout << "mIaOUuuu..." << std::endl;
 }

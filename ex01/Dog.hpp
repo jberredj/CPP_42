@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/10 22:02:58 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 12:27:53 by jberredj         ###   ########.fr       */
+/*   Created: 2022/01/10 21:54:30 by jberredj          #+#    #+#             */
+/*   Updated: 2022/01/11 15:04:09 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Cat.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-Cat::Cat(void)
+class Dog : public Animal
 {
-	this->type = std::string("Cat");
-}
+private:
+	Brain			*brain;
+public:
+					Dog(void);
+					Dog(const Dog &src);
+					~Dog();
 
-Cat::Cat(const Cat &src)
-{
-	this->type = src.type;
-}
+	Dog				&operator=(const Dog &src);
 
-Cat::~Cat()
-{
-}
+	virtual void	makeSound(void) const;
+};
 
-Cat	&Cat::operator=(const Cat &src)
-{
-	this->type = src.type;
-	return (*this);
-}
-
-void		Cat::makeSound(void) const
-{
-	std::cout << "Miaou..." << std::endl;
-}
+#endif

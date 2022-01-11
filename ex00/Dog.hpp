@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 21:54:30 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/10 22:19:03 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/11 12:30:25 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ class Dog : virtual public Animal
 {
 public:
 					Dog(void);
+					Dog(const Dog &src);
 					~Dog();
+
+	Dog				&operator=(const Dog &src);
 
 	virtual void	makeSound(void) const;
 };

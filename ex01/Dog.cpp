@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 22:02:58 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 12:27:53 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/11 15:05:38 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Cat.hpp"
+#include "Dog.hpp"
 
-Cat::Cat(void)
+Dog::Dog(void)
 {
-	this->type = std::string("Cat");
+	this->type = std::string("Dog");
+	this->brain = new Brain();
 }
 
-Cat::Cat(const Cat &src)
+Dog::Dog(const Dog &src) : Animal()
 {
 	this->type = src.type;
+	this->brain = src.brain;
 }
 
-Cat::~Cat()
-{
-}
-
-Cat	&Cat::operator=(const Cat &src)
+Dog	&Dog::operator=(const Dog &src)
 {
 	this->type = src.type;
+	this->brain = src.brain;
 	return (*this);
 }
 
-void		Cat::makeSound(void) const
+Dog::~Dog()
 {
-	std::cout << "Miaou..." << std::endl;
+	delete (this->brain);
+}
+
+void		Dog::makeSound(void) const
+{
+	std::cout << "Bark Bark !!" << std::endl;
 }
