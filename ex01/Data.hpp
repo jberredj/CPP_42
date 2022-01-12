@@ -1,39 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 09:48:07 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/12 15:39:55 by jberredj         ###   ########.fr       */
+/*   Created: 2022/01/12 15:44:49 by jberredj          #+#    #+#             */
+/*   Updated: 2022/01/12 15:45:44 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
-#include "Converter.hpp"
+#ifndef DATA_HPP
+# define DATA_HPP
+# include <string>
+typedef	std::string Data;
 
-int	main (int ac, char **av)
-{
-	int			i = 1;
-	Converter	conv;
-	
-	while (i < ac)
-	{
-		try
-		{
-			if (av[i][0] == '\0')
-				throw(Converter::StringInvalid());
-			conv.convert_str(av[i]);
-			conv.print_all();
-			std::cout << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-		i++;
-	}
-	return (0);
-}
+#endif

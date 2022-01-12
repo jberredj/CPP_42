@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:11:51 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/12 15:26:28 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/12 15:42:51 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ private:
 	void		_valid_input(std::string &input);
 	size_t		_get_min_prec(void);
 public:
-	Converter(void);
-	Converter(const Converter &src);
-	~Converter(void);
+				Converter(void);
+				Converter(const Converter &src);
+				~Converter(void);
 
 	Converter	&operator=(const Converter &rhs);
 
