@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 16:09:25 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/05 18:04:55 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/15 21:17:27 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	Account::makeDeposit( int deposit )
 	this->_nbDeposits++;
 	Account::_totalNbDeposits++;
 	std::cout << "index:" << this->_accountIndex << ";";
-	std::cout << "p_amout" << old_amount << ";";
+	std::cout << "p_amount:" << old_amount << ";";
 	std::cout << "deposit:" << deposit << ";";
 	std::cout << "amount:" << this->_amount << ";";
 	std::cout << "nb_deposits:" << this->_nbDeposits;
