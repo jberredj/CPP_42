@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 15:17:44 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/10 11:01:30 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/11 11:04:04 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,5 @@ public:
 
 	static void			set_verbose(bool new_val);
 };
-
-
 
 #endif

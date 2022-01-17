@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 11:07:41 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/10 12:15:00 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/17 22:46:26 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,18 @@ int main(void)
 	Fixed a;
 	Fixed const b(Fixed(5.05f) * Fixed(2));
 
+	std::cout << (a > b) << std::endl;
+	std::cout << (a < b) << std::endl;
+	std::cout << (a <= b) << std::endl;
+	std::cout << (a >= b) << std::endl;
+	std::cout << (a == b) << std::endl;
+	std::cout << (a != b) << std::endl;
+	std::cout << (a + b) << std::endl;
+	std::cout << (a - b) << std::endl;
+	std::cout << (a * b) << std::endl;
+	std::cout << (a / b) << std::endl;
+	std::cout << Fixed::min(a, b) << std::endl;
+	std::cout << Fixed::max(a, b) << std::endl;
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;
