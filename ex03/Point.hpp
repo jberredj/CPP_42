@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:20:48 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/10 17:38:52 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/18 06:58:31 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ private:
 public:
 				Point(void);
 				Point(const Point &obj);
-				Point(float new_x, float new_y);
+				Point(const float new_x, const float new_y);
 				~Point(void);
 
 	Point		&operator=(const Point &to_asign);

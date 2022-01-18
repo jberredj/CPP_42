@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:20:54 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/10 17:39:12 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/18 06:58:18 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Point::Point(void)
 {
 }
 
-Point::Point(float new_x, float new_y)
+Point::Point(const float new_x, const float new_y)
 : x(new_x), y(new_y)
 {
 }
