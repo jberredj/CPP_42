@@ -6,11 +6,11 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/02 15:05:18 by jberredj          #+#    #+#              #
-#    Updated: 2022/01/07 11:52:39 by jberredj         ###   ########.fr        #
+#    Updated: 2022/01/21 16:03:27 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	Karen
+NAME		=	karenFilter
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
