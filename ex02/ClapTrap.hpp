@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:56:16 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 11:30:14 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 14:07:15 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
 	int			get_attack_damage(void);
 	void		set_attack_damage(int nbr);
 
-	void		attack(std::string const & target);
+	void		attack(const std::string &target);
 	void		takeDamage(unsigned int amount);
 	void		beRepaired(unsigned int amount);
 };

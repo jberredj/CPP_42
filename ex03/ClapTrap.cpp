@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 19:09:42 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 11:46:16 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 14:07:30 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &src)
 	return (*this);
 }
 
-void	ClapTrap::attack(std::string const & target)
+void	ClapTrap::attack(const std::string &target)
 {
 	std::cout << "ClapTrap " << this->_name << " attack " << target
 	<< ", causing " << this->_attack_damage <<  " points of damage!" << std::endl;
