@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 11:07:41 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/17 22:46:26 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 10:33:47 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,35 @@
 
 int main(void)
 {
-	Fixed a;
+	Fixed 		a;
 	Fixed const b(Fixed(5.05f) * Fixed(2));
+	Fixed		c(12);
+	Fixed const	d(c - 15);
 
-	std::cout << (a > b) << std::endl;
-	std::cout << (a < b) << std::endl;
-	std::cout << (a <= b) << std::endl;
-	std::cout << (a >= b) << std::endl;
-	std::cout << (a == b) << std::endl;
-	std::cout << (a != b) << std::endl;
-	std::cout << (a + b) << std::endl;
-	std::cout << (a - b) << std::endl;
-	std::cout << (a * b) << std::endl;
-	std::cout << (a / b) << std::endl;
-	std::cout << Fixed::min(a, b) << std::endl;
-	std::cout << Fixed::max(a, b) << std::endl;
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max(a, b) << std::endl;
+	std::cout << "(a > b): " << (a > b) << std::endl;
+	std::cout << "(a < b):" << (a < b) << std::endl;
+	std::cout << "(a <= b):" << (a <= b) << std::endl;
+	std::cout << "(a >= b):" << (a >= b) << std::endl;
+	std::cout << "(a == b):" << (a == b) << std::endl;
+	std::cout << "(a != b):" << (a != b) << std::endl;
+	std::cout << "(a + b):" << (a + b) << std::endl;
+	std::cout << "(a - b):" << (a - b) << std::endl;
+	std::cout << "(a * b):" << (a * b) << std::endl;
+	std::cout << "(a / b):" << (a / b) << std::endl;
+	std::cout << "min(a, b): " << Fixed::min(a, b) << std::endl;
+	std::cout << "max(a, b): " << Fixed::max(a, b) << std::endl;
+	std::cout << "(const)min(b, c): " << Fixed::min(b, c) << std::endl;
+	std::cout << "(const)max(b, c): " << Fixed::max(b, c) << std::endl;
+	std::cout << "operator<< a: " << a << std::endl;
+	std::cout << "++a: " << ++a << std::endl;
+	std::cout << "a: " << a << std::endl;
+	std::cout << "a++: " << a++ << std::endl;
+	std::cout << "a: " << a << std::endl;
+	std::cout << "b: " << b << std::endl;
+	std::cout << "c: " << c << std::endl;
+	std::cout << "--c: " << --c << std::endl;
+	std::cout << "c: " << c << std::endl;
+	std::cout << "c--: " << c-- << std::endl;
+	std::cout << "c: " << c << std::endl;
 	return 0;
 }

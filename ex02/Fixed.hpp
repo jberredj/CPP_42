@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 15:17:44 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/10 12:15:57 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 10:26:53 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ public:
 	static const Fixed	&min(const Fixed &lhs, const Fixed &rhs);
 	static Fixed		&max(Fixed &lhs, Fixed &rhs);
 	static const Fixed	&max(const Fixed &lhs, const Fixed &rhs);
+	Fixed				abs(void);
 };
 
 std::ostream		&operator<<(std::ostream &out, const Fixed &fixed);
