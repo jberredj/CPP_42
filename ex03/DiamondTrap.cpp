@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 20:52:57 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 11:53:22 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 14:42:51 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,12 @@ DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &src)
 	ClapTrap::operator=(src);
 	this->_name = src._name;
 	std::cout << "DiamondTrap operator= called" << std::endl;
+	return (*this);
+}
+
+void	DiamondTrap::attack(const std::string &target)
+{
+	ScavTrap::attack(target);
 }
 
 void	DiamondTrap::whoAmI(void)

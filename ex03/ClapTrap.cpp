@@ -6,7 +6,7 @@
 /*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 19:09:42 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 14:07:30 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/01/27 14:22:16 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void)
-: _name("Default"), _hit_points(10), _energy_points(10),
+: _name("Default Clap"), _hit_points(10), _energy_points(10),
 	_total_energy(_energy_points), _attack_damage(0)
 {
 	std::cout << "ClapTrap default constructor" << std::endl;

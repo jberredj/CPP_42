@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 19:44:38 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/10 21:28:19 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 14:44:44 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int	main(void)
 {
-	ClapTrap	default_clap;
+	ClapTrap	default_clap("No name");
 	ScavTrap	linus("Linus");
 	FragTrap	timmy("Timmy");
 	DiamondTrap	steve("Steve");
@@ -31,6 +31,9 @@ int	main(void)
 	default_clap.takeDamage(linus.get_attack_damage());
 	linus.attack(steve.get_name());
 	steve.takeDamage(linus.get_attack_damage());
+	steve.attack(timmy.get_name());
+	steve.guardGate();
+	steve.highFivesGuys();
 	timmy.highFivesGuys();
 	default_clap.takeDamage(timmy.get_attack_damage());
 	linus.takeDamage(timmy.get_attack_damage());

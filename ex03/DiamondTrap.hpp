@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 20:53:06 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 11:48:12 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 14:42:30 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ public:
 
 	DiamondTrap	&operator=(const DiamondTrap &src);
 
+	void		attack(const std::string &target);
 	void		whoAmI(void);
 };
 
