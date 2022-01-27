@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 21:59:41 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 15:45:00 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 16:01:53 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,6 @@ Animal	&Animal::operator=(const Animal &src)
 {
 	this->type = src.type;
 	return (*this);
-}
-
-void		Animal::makeSound(void) const
-{
-	std::cout << "An animal sound" << std::endl;
 }
 
 const std::string	&Animal::getType(void) const

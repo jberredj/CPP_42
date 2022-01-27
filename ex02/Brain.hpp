@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 22:25:41 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 14:50:06 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 15:27:25 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@
 class Brain
 {
 private:
-	std::string		_ideas[100];
+	std::string			_ideas[100];
 public:
-					Brain(void);
-					Brain(const Brain &src);
-					~Brain(void);
+						Brain(void);
+						Brain(const Brain &src);
+						~Brain(void);
 
-	Brain			&operator=(const Brain &src);
+	Brain				&operator=(const Brain &src);
+	const std::string	get_idea(int index) const;
 };
 
 #endif
