@@ -6,7 +6,7 @@
 /*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:56:16 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 14:06:08 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/01/27 17:13:03 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 class ClapTrap
 {
-protected:
+private:
 	std::string	_name;
 	int			_hit_points;
 	int			_energy_points;
