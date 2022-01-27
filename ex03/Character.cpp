@@ -6,7 +6,7 @@
 /*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:32:50 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 16:23:59 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/01/27 17:08:48 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	Character::equip(AMateria* m)
 void	Character::unequip(int idx)
 {
 	int i;
-	if (idx >= this->_loaded_materia)
+	if (idx >= this->_loaded_materia || this->_loaded_materia < 1)
 	{
 		std::cout << "Can't unequip Materia " << idx << std::endl;
 		return ;
@@ -86,7 +86,7 @@ void	Character::unequip(int idx)
 		i++;
 	}
 	this->_loaded_materia--;
-	this->_inventory[i] = NULL;
+	this->_inventory[i - 1] = NULL;
 }
 
 void	Character::use(int idx, ICharacter& target)
