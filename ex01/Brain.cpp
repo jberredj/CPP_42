@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 22:25:35 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 15:12:44 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 15:29:12 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,10 @@ Brain &Brain::operator=(const Brain &src)
 	for (int i = 0; i < 100; i++)
 		this->_ideas[i] = src._ideas[i];
 	return (*this);
+}
+const std::string	Brain::get_idea(int index) const
+{
+	if (index < 0 || index > 99)
+			return (std::string("No ideas here"));
+		return (this->_ideas[index]);
 }
