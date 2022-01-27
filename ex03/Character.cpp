@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:32:50 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 20:09:05 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 16:23:59 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,14 @@ void	Character::unequip(int idx)
 		std::cout << "Can't unequip Materia " << idx << std::endl;
 		return ;
 	}
+	delete (this->_inventory[idx]);
 	i = idx + 1;
 	while (i < Character::_max_inv && this->_inventory[i])
 	{
 		this->_inventory[i - 1] = this->_inventory[i];
 		i++;
 	}
+	this->_loaded_materia--;
 	this->_inventory[i] = NULL;
 }
 
@@ -92,6 +94,7 @@ void	Character::use(int idx, ICharacter& target)
 	if (idx >= this->_loaded_materia)
 	{
 		std::cout << "No materia equiped in slot " << idx << std::endl;
+		return ;
 	}
 	this->_inventory[idx]->use(target);
 }

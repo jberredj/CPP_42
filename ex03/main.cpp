@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:08:39 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 20:00:43 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 16:23:39 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ int main(void)
 	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
+	me->unequip(0);
 	me->use(1, *bob);
+	me->use(0, *bob);
 	delete bob;
 	delete me;
 	delete src;
