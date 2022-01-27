@@ -3,16 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 20:19:15 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 11:28:43 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 14:18:46 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap(void)
+{
+	this->_name = std::string("Default Scav");
+	this->_hit_points = 100;
+	this->_energy_points = 50;
+	this->_attack_damage = 20;
+	this->_total_energy = this->_energy_points;
+	std::cout << "ScavTrap default constructor" << std::endl;
+}
 
 ScavTrap::ScavTrap(const std::string name)
 {
@@ -35,26 +44,9 @@ ScavTrap::ScavTrap(const ScavTrap &src)
 	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(void)
-{
-	this->_hit_points = 100;
-	this->_energy_points = 50;
-	this->_attack_damage = 20;
-	this->_total_energy = this->_energy_points;
-	std::cout << "ScavTrap default constructor" << std::endl;
-}
-
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap destructor on " << this->_name << std::endl;
-}
-
-ScavTrap::ScavTrap(const ScavTrap &src)
-{
-	this->_name = src._name;
-	this->_hit_points = src._hit_points;
-	this->_energy_points = src._energy_points;
-	this->_attack_damage = src._attack_damage;
 }
 
 ScavTrap	&ScavTrap::operator=(const ScavTrap &src)
@@ -64,6 +56,12 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &src)
 	this->_energy_points = src._energy_points;
 	this->_attack_damage = src._attack_damage;
 	return (*this);
+}
+
+void	ScavTrap::attack(const std::string &target)
+{
+	std::cout << "ScavTrap " << this->_name << " attack " << target
+	<< ", causing " << this->_attack_damage <<  " points of damage!" << std::endl;
 }
 
 void	ScavTrap::guardGate(void)

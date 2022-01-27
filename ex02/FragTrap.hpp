@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 20:37:44 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 11:31:58 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 14:21:17 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ public:
 
 	FragTrap	&operator=(const FragTrap &src);
 
+	void		attack(const std::string &target);
 	void		highFivesGuys(void);
 };
 
