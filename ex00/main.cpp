@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 22:07:02 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/10 22:17:50 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/01/27 15:13:07 by ddiakova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
@@ -28,5 +30,13 @@ int main()
 	delete (meta);
 	delete (i);
 	delete (j);
+	const WrongAnimal *w = new WrongAnimal();
+	const WrongAnimal *wc = new WrongCat();
+	std::cout << w->getType() << " " << std::endl;
+	w->makeSound();
+	std::cout << wc->getType() << " " << std::endl;
+	wc->makeSound();
+	delete (w);
+	delete (wc);
 	return (0);
 }

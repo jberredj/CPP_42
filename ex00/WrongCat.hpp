@@ -12,9 +12,9 @@
 
 #ifndef WRONGCAT_HPP
 # define WRONGCAT_HPP
-# include "Animal.hpp"
+# include "WrongAnimal.hpp"
 
-class WrongCat : virtual public Animal
+class WrongCat : public WrongAnimal
 {
 public:
 					WrongCat(void);
@@ -23,7 +23,7 @@ public:
 
 	WrongCat		&operator=(const WrongCat &src);
 
-	virtual void	makeSound(void) const;
+	void	makeSound(void) const;
 };
 
 #endif

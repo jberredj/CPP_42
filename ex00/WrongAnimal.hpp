@@ -21,11 +21,11 @@ protected:
 public:
 						WrongAnimal(void);
 						WrongAnimal(const WrongAnimal &src);
-	virtual				~WrongAnimal();
+						~WrongAnimal();
 
 	WrongAnimal			&operator=(const WrongAnimal &src);
 
-	virtual void		makeSound(void) const;
+	void				makeSound(void) const;
 	const std::string	&getType(void) const;
 };
 
