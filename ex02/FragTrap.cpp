@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 20:37:32 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 14:22:20 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/03/20 16:25:47 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ FragTrap::FragTrap(void)
 	this->_hit_points = 100;
 	this->_energy_points = 100;
 	this->_attack_damage = 30;
-	this->_total_energy = this->_energy_points;
+	this->_total_hp = this->_total_hp;
 	std::cout << "FragTrap default constructor" << std::endl;
 }
 
@@ -29,7 +29,7 @@ FragTrap::FragTrap(const std::string name)
 	this->_hit_points = 100;
 	this->_energy_points = 100;
 	this->_attack_damage = 30;
-	this->_total_energy = this->_energy_points;
+	this->_total_hp = this->_total_hp;
 	std::cout << "FragTrap name constructor: " << name << std::endl;
 	return;
 }
@@ -40,7 +40,7 @@ FragTrap::FragTrap(const FragTrap &src)
 	this->_hit_points = src._hit_points;
 	this->_energy_points = src._energy_points ;
 	this->_attack_damage = src._attack_damage;
-	this->_total_energy = src._energy_points;
+	this->_total_hp = src._total_hp;
 	std::cout << "FragTrap copy constructor" << std::endl;
 }
 
@@ -55,7 +55,7 @@ FragTrap	&FragTrap::operator=(const FragTrap &src)
 	this->_hit_points = src._hit_points;
 	this->_energy_points = src._energy_points ;
 	this->_attack_damage = src._attack_damage;
-	this->_total_energy = src._energy_points;
+	this->_total_hp = src._total_hp;
 	std::cout << "FragTrap operator= called" << std::endl;
 	return (*this);
 }

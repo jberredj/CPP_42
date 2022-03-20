@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 20:19:15 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 14:18:46 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/03/20 16:25:02 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ScavTrap::ScavTrap(void)
 	this->_hit_points = 100;
 	this->_energy_points = 50;
 	this->_attack_damage = 20;
-	this->_total_energy = this->_energy_points;
+	this->_total_hp = this->_total_hp;
 	std::cout << "ScavTrap default constructor" << std::endl;
 }
 
@@ -29,7 +29,7 @@ ScavTrap::ScavTrap(const std::string name)
 	this->_hit_points = 100;
 	this->_energy_points = 50;
 	this->_attack_damage = 20;
-	this->_total_energy = this->_energy_points;
+	this->_total_hp = this->_energy_points;
 	std::cout << "ScavTrap name constructor: " << name << std::endl;
 	return;
 }
@@ -40,7 +40,7 @@ ScavTrap::ScavTrap(const ScavTrap &src)
 	this->_hit_points = src._hit_points;
 	this->_energy_points = src._energy_points;
 	this->_attack_damage = src._attack_damage;
-	this->_total_energy = src._total_energy;
+	this->_total_hp = src._total_hp;
 	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 

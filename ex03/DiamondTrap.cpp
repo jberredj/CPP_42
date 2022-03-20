@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 20:52:57 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 14:42:51 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/03/20 16:56:05 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ DiamondTrap::DiamondTrap(const std::string name)
 	this->_hit_points = FragTrap::_hit_points;
 	this->_energy_points = ScavTrap::_energy_points;
 	this->_attack_damage = FragTrap::_attack_damage;
-	this->_total_energy = this->_energy_points;
+	this->_total_hp = this->_hit_points;
 	std::cout << "DiamondTrap name constructor: " << name << std::endl;
 	return;
 }
@@ -39,7 +39,7 @@ DiamondTrap::DiamondTrap(void)
 	this->_hit_points = FragTrap::_hit_points;
 	this->_energy_points = ScavTrap::_energy_points;
 	this->_attack_damage = FragTrap::_attack_damage;
-	this->_total_energy = this->_energy_points;
+	this->_total_hp = this->_hit_points;
 	std::cout << "DiamondTrap default constructor" << std::endl;
 }
 

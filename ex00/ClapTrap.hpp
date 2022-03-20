@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:56:16 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 17:13:03 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/03/20 16:03:13 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ private:
 	std::string	_name;
 	int			_hit_points;
 	int			_energy_points;
-	const int	_total_energy;
+	const int	_total_hp;
 	int			_attack_damage;
 public:
 				ClapTrap(void);

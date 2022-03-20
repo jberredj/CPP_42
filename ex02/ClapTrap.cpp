@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddiakova <ddiakova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 19:09:42 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/27 14:22:16 by ddiakova         ###   ########.fr       */
+/*   Updated: 2022/03/20 16:10:51 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void)
-: _name("Default Clap"), _hit_points(10), _energy_points(10),
-	_total_energy(_energy_points), _attack_damage(0)
+: _name("Default"), _hit_points(10), _energy_points(10),
+	_total_hp(_hit_points), _attack_damage(0)
 {
 	std::cout << "ClapTrap default constructor" << std::endl;
 }
@@ -24,7 +24,7 @@ ClapTrap::ClapTrap(void)
 ClapTrap::ClapTrap(const ClapTrap &src)
 : _name(src._name), _hit_points(src._hit_points), 
 	_energy_points(src._energy_points),
-	_total_energy(src._total_energy),
+	_total_hp(src._hit_points),
 	_attack_damage(src._attack_damage)
 {
 	std::cout << "ClapTrap copy constructor" << std::endl;
@@ -32,7 +32,7 @@ ClapTrap::ClapTrap(const ClapTrap &src)
 
 ClapTrap::ClapTrap(std::string name)
 : _name(name), _hit_points(10), _energy_points(10),
-	_total_energy(_energy_points), _attack_damage(0)
+	_total_hp(_hit_points), _attack_damage(0)
 {	
 	std::cout << "ClapTrap name constructor: " << name << std::endl;
 }
@@ -53,30 +53,37 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &src)
 
 void	ClapTrap::attack(const std::string &target)
 {
+	if (this->_energy_points <= 0)
+	{
+		std::cout << "ClapTrap " << this->_name
+			<< " doesn't have enough energy points to attack" << std::endl;
+		return ;
+	}
+	this->_energy_points--;
 	std::cout << "ClapTrap " << this->_name << " attack " << target
 	<< ", causing " << this->_attack_damage <<  " points of damage!" << std::endl;
 }
 
 void		ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_energy_points < 1)
+	if (this->_hit_points < 1)
 	{
 		std::cout << "ClapTrap " << this->_name 
 			<< " can't take damage anymore !" << std::endl;
 		return ;
 	}
-	this->_energy_points -= amount;
+	this->_hit_points -= amount;
 	std::cout << "ClapTrap " << this->_name << " took "
-		<< ((this->_energy_points < 1) ? amount + this->_energy_points : amount)
+		<< ((this->_hit_points < 1) ? amount + this->_hit_points : amount)
 		<< " damage. ";
-	if (this->_energy_points < 1)
+	if (this->_hit_points < 1)
 	{
-		this->_energy_points = 0;
+		this->_hit_points = 0;
 		std::cout << "And died from it." << std::endl;
 	}
 	else
 	{
-		std::cout << this->_energy_points << " energy points left." << std::endl;
+		std::cout << this->_hit_points << " energy points left." << std::endl;
 	}
 	return ;
 }
@@ -85,18 +92,24 @@ void		ClapTrap::beRepaired(unsigned int amount)
 {
 	int	extra;
 
-	extra = this->_energy_points + amount - this->_total_energy;
-	if (this->_energy_points > this->_total_energy - 1)
+	if (this->_energy_points <= 0)
+	{
+		std::cout << "ClapTrap " << this->_name
+			<< " doesn't have enough energy points to be repaired" << std::endl;
+		return;
+	}
+	extra = this->_hit_points + amount - this->_total_hp;
+	if (this->_hit_points > this->_total_hp - 1)
 	{
 		std::cout << "ClapTrap " << this->_name 
 			<< " can't be repaired anymore !" << std::endl;
 		return ;
 	}
-	this->_energy_points += amount;
+	this->_hit_points += amount;
 	std::cout << "ClapTrap " << this->_name << " repaired, "
 		<< ((extra) ?
 			amount - extra : amount)
-		<< " energy points gained." << std::endl;
+		<< " hit points gained." << std::endl;
 	return ;
 }
 
