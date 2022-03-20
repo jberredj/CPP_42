@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:56:16 by jberredj          #+#    #+#             */
-/*   Updated: 2022/03/20 16:21:26 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/03/20 17:10:53 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ protected:
 	std::string	_name;
 	int			_hit_points;
 	int			_energy_points;
-	int	_total_hp;
+	int			_total_hp;
 	int			_attack_damage;
 public:
 				ClapTrap(void);
