@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 20:37:32 by jberredj          #+#    #+#             */
-/*   Updated: 2022/03/20 17:17:20 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/03/20 17:38:23 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	FragTrap::attack(const std::string &target)
 	this->_energy_points--;
 	std::cout << "ClapTrap " << this->_name << " attack " << target
 	<< ", causing " << this->_attack_damage <<  " points of damage!" << std::endl;
-
 }
 
 void	FragTrap::highFivesGuys(void)
