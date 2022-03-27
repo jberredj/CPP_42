@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 20:37:44 by jberredj          #+#    #+#             */
-/*   Updated: 2022/03/20 16:55:26 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/03/27 19:53:03 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ public:
 
 	FragTrap	&operator=(const FragTrap &src);
 
-	void		attack(const std::string &target);
 	void		highFivesGuys(void);
 };
 

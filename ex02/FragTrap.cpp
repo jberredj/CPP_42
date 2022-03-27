@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 20:37:32 by jberredj          #+#    #+#             */
-/*   Updated: 2022/03/20 17:17:20 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/03/27 19:52:07 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,20 +58,6 @@ FragTrap	&FragTrap::operator=(const FragTrap &src)
 	this->_total_hp = src._total_hp;
 	std::cout << "FragTrap operator= called" << std::endl;
 	return (*this);
-}
-
-void	FragTrap::attack(const std::string &target)
-{
-	if (this->_energy_points <= 0)
-	{
-		std::cout << "FragTrap " << this->_name
-			<< " doesn't have enough energy points to attack" << std::endl;
-		return ;
-	}
-	this->_energy_points--;
-	std::cout << "ClapTrap " << this->_name << " attack " << target
-	<< ", causing " << this->_attack_damage <<  " points of damage!" << std::endl;
-
 }
 
 void	FragTrap::highFivesGuys(void)
