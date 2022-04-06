@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:19:15 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/12 15:34:36 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:57:30 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,11 @@ void	Converter::_valid_input(std::string &input)
 		if (input[i] == '.')
 			dot++;
 		if (input[i] == 'f')
+		{
+			if (!dot)
+				dot++;
 			f++;
+		}
 		i++;
 	}
 	if (f > 1 || (f == 1 && input[len - 1] != 'f')
@@ -132,23 +136,23 @@ void	Converter::convert_str(std::string input)
 	{
 	case CHAR:
 		this->_c_conv = input[0];
-		this->_i_conv = (int)this->_c_conv;
-		this->_d_conv = (double)this->_i_conv;
-		this->_f_conv = (double)this->_i_conv;
+		this->_i_conv = static_cast<int>(this->_c_conv);
+		this->_d_conv = static_cast<double>(this->_i_conv);
+		this->_f_conv = static_cast<double>(this->_i_conv);
 		break;
 	case INT:
 		this->_i_conv = atoi(input.c_str());
-		this->_c_conv = (char)this->_i_conv;
-		this->_d_conv = (double)this->_i_conv;
-		this->_f_conv = (double)this->_i_conv;
+		this->_c_conv = static_cast<char>(this->_i_conv);
+		this->_d_conv = static_cast<double>(this->_i_conv);
+		this->_f_conv = static_cast<double>(this->_i_conv);
 		break;
 	case FLOAT:
 		__attribute__ ((fallthrough));
 	case DOUBLE:
 		this->_f_conv = atof(input.c_str());
-		this->_d_conv = (double)atof(input.c_str());
-		this->_i_conv = (int)this->_d_conv;
-		this->_c_conv = (char)this->_i_conv;
+		this->_d_conv = static_cast<double>(atof(input.c_str()));
+		this->_i_conv = static_cast<int>(this->_d_conv);
+		this->_c_conv = static_cast<char>(this->_i_conv);
 		break;
 	default:
 		throw (Converter::StringInvalid());
