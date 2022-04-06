@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 20:16:52 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 23:01:32 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:39:11 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ int	main(void)
 	ShrubberyCreationForm	form("a_tree");
 	RobotomyRequestForm		robot("Crook");
 	PresidentialPardonForm	pardon("Mafia Boss");
-	
-	form.beSigned(lvl_1_crook);
-	form.beSigned(lvl_50_boss);
-	form.beSigned(lvl_50_boss);
+
+	lvl_1_crook.signForm(form);	
+	lvl_50_boss.signForm(form);
+	lvl_50_boss.signForm(form);
 	try
 	{
 		lvl_1_crook.executeForm(form);
@@ -37,7 +37,7 @@ int	main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	robot.beSigned(lvl_50_boss);
+	lvl_50_boss.signForm(robot);
 	try
 	{
 		lvl_1_crook.executeForm(robot);
@@ -49,7 +49,7 @@ int	main(void)
 	for (int i = 0; i < 15; i++)
 		lvl_50_boss.executeForm(robot);
 	lvl_1_crook.inc_grade(149);
-	pardon.beSigned(lvl_1_crook);
+	lvl_1_crook.signForm(pardon);
 	lvl_1_crook.executeForm(pardon);
 	return (0);
 }

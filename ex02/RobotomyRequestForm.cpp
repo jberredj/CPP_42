@@ -6,11 +6,12 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 22:35:21 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 22:54:53 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:32:21 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+#include "Bureaucrat.hpp"
 #include <iostream>
 #include <cstdlib>
 

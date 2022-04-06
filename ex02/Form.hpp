@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 21:07:46 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 22:50:48 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:31:02 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define FORM_HPP
 # include <ostream>
 # include <string>
-# include "Bureaucrat.hpp"
-
 class Bureaucrat;
 
 class Form
@@ -28,7 +26,7 @@ private:
 	const std::string	_name;
 	bool				_signed;
 
-	void				_valid_grade(int grade);
+	void				_valid_grade(int grade) const;
 	void				_high_enough_grade(int required, int grade) const;
 protected:
 	bool				_executable(int grade) const;
@@ -68,6 +66,15 @@ public:
 		virtual const char* what() const throw()
 		{
 			return ("GRADE TOO LOW");
+		}
+	};
+
+	class AllreadSignedException : public std::exception
+	{
+	public:
+		virtual const char* what() const throw()
+		{
+			return ("form is allready signed");
 		}
 	};
 

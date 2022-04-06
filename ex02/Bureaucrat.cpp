@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 20:18:12 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 22:56:34 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:39:50 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,15 +90,28 @@ void	Bureaucrat::executeForm(Form const &form)
 	try
 	{
 		form.execute(*this);
-		std::cout << this->_name << " executes " << form.get_name() << std::endl;
+		std::cout << this->_name << " executed " << form.get_name() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << "Can't execute form " << form.get_name()
 			<< " because " << e.what() << std::endl;
 	}
-	
-		
+}
+
+void	Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << this->_name << " cannot sign " << form.get_name()
+			<< " because " << e.what() << std::endl;
+		return ;
+	}
+	std::cout << this->_name << " signs form " << form.get_name() << std::endl;
 }
 
 const int	Bureaucrat::_lowest_grade = 150;
