@@ -1,0 +1,1 @@
+//Nothing in this file, because template are only in hpp or tpp files that needs to be included, not cpp files.
