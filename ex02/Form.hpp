@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 21:07:46 by jberredj          #+#    #+#             */
-/*   Updated: 2022/04/06 15:31:02 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:44:24 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ public:
 						Form(const std::string &name, int min_grade_sign);
 						Form(const std::string &name, int min_grade_sign, int min_grade_exec);
 						Form(const Form &src);
-						~Form(void);
+	virtual				~Form(void);
 
 	Form				&operator=(const Form &rhs);
 

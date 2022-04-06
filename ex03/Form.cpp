@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 21:07:36 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 22:21:26 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:34:24 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 const int	Form::_lowest_grade = 150;
 const int	Form::_highest_grade = 1;
 
-void	Form::_valid_grade(int grade)
+void	Form::_valid_grade(int grade) const
 {
 	if (grade < Form::_highest_grade)
 		throw (Form::GradeTooHighException());
@@ -113,21 +113,10 @@ void	Form::beSigned(Bureaucrat &bureaucrat)
 {
 	if (this->_signed)
 	{
-		std::cout << bureaucrat.getName() << " cannot sign form " << this->_name
-			<< " because it's allready signed" << std::endl;
-		return ;
+		throw(Form::AllreadSignedException());
 	}
-	try
-	{
-		this->_high_enough_grade(this->_min_grade_sign, bureaucrat.getGrade());
-		this->_signed = true;
-		std::cout << bureaucrat.getName() << " signs form " << this->_name << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << bureaucrat.getName() << " cannot sign " << this->_name
-			<< " because " << e.what() << std::endl;
-	}
+	this->_high_enough_grade(this->_min_grade_sign, bureaucrat.getGrade());
+	this->_signed = true;
 }
 
 std::ostream	&operator<<(std::ostream &out, const Form &form)
