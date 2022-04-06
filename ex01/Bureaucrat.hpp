@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 20:17:15 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 20:48:33 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:18:59 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include <exception>
 # include <string>
 # include <ostream>
+# include "Form.hpp"
+class Form;
 
 class Bureaucrat
 {
@@ -38,6 +40,7 @@ public:
 	int					getGrade(void) const;
 	void				inc_grade(int to_inc);
 	void				dec_grade(int to_dec);
+	void				signForm(Form &form);
 /*
 **	Exceptions
 */

@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 21:07:36 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 21:49:35 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:23:57 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 const int	Form::_lowest_grade = 150;
 const int	Form::_highest_grade = 1;
 
-void	Form::_valid_grade(int grade)
+void	Form::_valid_grade(int grade) const
 {
 	if (grade < Form::_highest_grade)
 		throw (Form::GradeTooHighException());
@@ -25,7 +25,7 @@ void	Form::_valid_grade(int grade)
 		throw (Form::GradeTooLowException());
 }
 
-void	Form::_high_enough_grade(int required, int grade)
+void	Form::_high_enough_grade(int required, int grade) const
 {
 	if (grade <= required)
 		return ;
@@ -100,27 +100,17 @@ void	Form::beSigned(Bureaucrat &bureaucrat)
 {
 	if (this->_signed)
 	{
-		std::cout << bureaucrat.getName() << " cannot sign form " << this->_name
-			<< " because it's allready signed" << std::endl;
-		return ;
+		throw(Form::AllreadSignedException());
 	}
-	try
-	{
-		this->_high_enough_grade(this->_min_grade_sign, bureaucrat.getGrade());
-		this->_signed = true;
-		std::cout << bureaucrat.getName() << " signs form " << this->_name << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << bureaucrat.getName() << " cannot sign " << this->_name
-			<< " because " << e.what() << std::endl;
-	}
+	this->_high_enough_grade(this->_min_grade_sign, bureaucrat.getGrade());
+	this->_signed = true;
 }
 
 std::ostream	&operator<<(std::ostream &out, const Form &form)
 {
 	out << "Form " << form.get_name() << ", require grade "
 		<< form.get_min_grade_sign() << " to sign, and grade "
-		<< form.get_min_grade_exec() << " to execute";
+		<< form.get_min_grade_exec() << " to execute and is "
+		<< (form.get_signed() ? " " :"not ") << "signed";
 	return (out);
 }

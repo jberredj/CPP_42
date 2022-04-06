@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 20:18:12 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/11 20:56:20 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:22:59 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,21 @@ void	Bureaucrat::dec_grade(int to_dec)
 	this->_valid_grade(this->_grade + to_dec);
 	this->_grade += to_dec;
 }
+}
+
+void	Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << this->_name << " cannot sign " << form.get_name()
+			<< " because " << e.what() << std::endl;
+		return ;
+	}
+	std::cout << this->_name << " signs form " << form.get_name() << std::endl;
 }
 
 std::ostream	&operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
