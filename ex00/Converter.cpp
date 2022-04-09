@@ -6,13 +6,15 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:19:15 by jberredj          #+#    #+#             */
-/*   Updated: 2022/04/06 15:57:30 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/09 14:55:56 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <iomanip>
 #include <iostream>
+#include <cfloat>
+#include <limits> 
 #include "Converter.hpp"
 
 const std::string	Converter::_special_val[8] =
@@ -63,13 +65,15 @@ void	Converter::_valid_input(std::string &input)
 	i = (input[0] == '-' || input[0] == '+');
 	while (i < len && dot < 2 && f < 2)
 	{
+		if (f)
+			throw (Converter::StringInvalid());
 		if ((input[i] < 0x20 && input[i] >= 0x7F)
 			|| ((input[i] < '0' || input[i] > '9')
-			&& input[i] != '.' && input[i] != 'f'))
+			&& input[i] != '.' && input[i] != 'f' && input[i] != 'F'))
 			throw (Converter::StringInvalid());
 		if (input[i] == '.')
 			dot++;
-		if (input[i] == 'f')
+		if (input[i] == 'f' || input[i] == 'F')
 		{
 			if (!dot)
 				dot++;
@@ -78,27 +82,9 @@ void	Converter::_valid_input(std::string &input)
 		i++;
 	}
 	if (f > 1 || (f == 1 && input[len - 1] != 'f')
-		|| dot > 1)
+		|| dot > 1 || (dot && f && len < 3))
 		throw (Converter::StringInvalid());
 	this->_type = 1 + (2 * dot) - f;
-}
-
-size_t	Converter::_get_min_prec(void)
-{
-	float	base;
-	int		conv;
-	int		i = 1;
-
-	base = this->_d_conv - this->_i_conv;
-	while (base != (int)base)
-		base *= 10;
-	conv = base;
-	while (conv >= 10)
-	{
-		conv /= 10;
-		i++;
-	}
-	return (i);
 }
 
 Converter::Converter(void)
@@ -138,19 +124,22 @@ void	Converter::convert_str(std::string input)
 		this->_c_conv = input[0];
 		this->_i_conv = static_cast<int>(this->_c_conv);
 		this->_d_conv = static_cast<double>(this->_i_conv);
-		this->_f_conv = static_cast<double>(this->_i_conv);
+		this->_f_conv = static_cast<float>(this->_i_conv);
 		break;
 	case INT:
 		this->_i_conv = atoi(input.c_str());
 		this->_c_conv = static_cast<char>(this->_i_conv);
 		this->_d_conv = static_cast<double>(this->_i_conv);
-		this->_f_conv = static_cast<double>(this->_i_conv);
+		this->_f_conv = static_cast<float>(this->_i_conv);
 		break;
 	case FLOAT:
-		__attribute__ ((fallthrough));
-	case DOUBLE:
 		this->_f_conv = atof(input.c_str());
-		this->_d_conv = static_cast<double>(atof(input.c_str()));
+		this->_d_conv = static_cast<double>(this->_f_conv);
+		this->_i_conv = static_cast<int>(this->_d_conv);
+		this->_c_conv = static_cast<char>(this->_i_conv);
+	case DOUBLE:
+		this->_d_conv = std::strtod(input.c_str(), NULL);
+		this->_f_conv = static_cast<float>(this->_d_conv);
 		this->_i_conv = static_cast<int>(this->_d_conv);
 		this->_c_conv = static_cast<char>(this->_i_conv);
 		break;
@@ -183,23 +172,34 @@ double	Converter::get_d(void)
 void	Converter::print_all(void)
 {
 	std::cout << "char: ";
-	if (this->_nan)
+	if (this->_nan || this->_d_conv < std::numeric_limits<int>::min()
+		|| this->_d_conv > std::numeric_limits<int>::max())
 		std::cout << "Impossible" << std::endl;
 	else if (this->_c_conv < 0x20 || this->_c_conv >= 0x7F)
 		std::cout << "Non displayable" << std::endl;
 	else
 		std::cout << this->_c_conv << std::endl;
+	
 	std::cout << "int: ";
-	if (this->_nan)
+	if (this->_nan || this->_d_conv < std::numeric_limits<int>::min()
+		|| this->_d_conv > std::numeric_limits<int>::max())
 		std::cout << "Impossible" << std::endl;
 	else
 		std::cout << this->_i_conv << std::endl;
+	
 	std::cout << "float: ";
-	if (!this->_nan)
-		std::cout << std::setprecision(this->_get_min_prec());
-	std::cout << std::fixed;
-	std::cout << this->_f_conv << 'f' << std::endl;
-	std::cout << "double: " << this->_d_conv << std::endl;
+	if ((this->_d_conv < std::numeric_limits<float>::min() || this->_d_conv > std::numeric_limits<float>::max())
+		&& (this->_d_conv > -std::numeric_limits<float>::min() || this->_d_conv < -std::numeric_limits<float>::max()))
+		std::cout << "Impossible" << std::endl;
+	else
+		std::cout << this->_f_conv << 'f' << std::endl;
+
+	std::cout << "double: ";
+	if ((this->_d_conv < std::numeric_limits<double>::min() || this->_d_conv > std::numeric_limits<double>::max())
+		&& (this->_d_conv > -std::numeric_limits<double>::min() || this->_d_conv < -std::numeric_limits<double>::max()))
+		std::cout << "Impossible" << std::endl;
+	else
+		std::cout << this->_d_conv << std::endl;
 }
 
 void	Converter::reset(void)

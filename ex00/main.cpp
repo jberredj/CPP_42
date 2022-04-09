@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:48:07 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/12 15:39:55 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/09 10:46:24 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main (int ac, char **av)
 {
 	int			i = 1;
 	Converter	conv;
-	
+
 	while (i < ac)
 	{
 		try
