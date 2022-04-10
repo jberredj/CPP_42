@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:48:07 by jberredj          #+#    #+#             */
-/*   Updated: 2022/04/10 18:03:19 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/10 18:22:40 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ int	main (int ac, char **av)
 	int			i = 1;
 	Converter	conv;
 
+	if (ac < 2)
+	{
+		std::cout << "Arguments error." << std::endl;
+		return 1;
+	}
 	while (i < ac)
 	{
 		try
@@ -33,6 +38,9 @@ int	main (int ac, char **av)
 			std::cerr << e.what() << std::endl;
 		}
 		i++;
+		if (i < ac)
+			std::cout << std::endl;
+
 	}
 	return (0);
 }
