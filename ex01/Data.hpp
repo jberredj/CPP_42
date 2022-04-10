@@ -6,13 +6,19 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:44:49 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/12 15:45:44 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/10 18:04:49 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_HPP
 # define DATA_HPP
 # include <string>
-typedef	std::string Data;
+
+typedef struct Data
+{
+	int a;
+	float b;
+	std::string str;
+}	Data;
 
 #endif

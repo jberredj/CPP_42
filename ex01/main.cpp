@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:45:51 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/12 15:52:31 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/10 18:12:02 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,23 @@ Data	*deserialize(uintptr_t ptr)
 
 int	main(void)
 {
-	Data		*ptr;
+	Data		data_struct;
 	uintptr_t	ptr_serialized;
 	Data		*ptr_deserialized;
 
-	ptr = new Data("I'm a string");
-	std::cout << *ptr << std::endl;
-	ptr_serialized = serialize(ptr);
+	data_struct.a = 42;
+	data_struct.b = 42.42f;
+	data_struct.str = "I'm a struct";
+	std::cout << data_struct.a << std::endl;
+	std::cout << data_struct.b << std::endl;
+	std::cout << data_struct.str << std::endl << std::endl;
+	ptr_serialized = serialize(&data_struct);
 	ptr_deserialized = deserialize(ptr_serialized);
-	std::cout << *ptr_deserialized << std::endl;
-	delete (ptr_deserialized);
+	std::cout << "Struct addr: " << &data_struct << std::endl;
+	std::cout << "Serialize  : 0x" << std::hex << ptr_serialized << std::dec << std::endl;
+	std::cout << "Deserialize: " << ptr_deserialized << std::endl << std::endl;
+	std::cout << ptr_deserialized->a << std::endl;
+	std::cout << ptr_deserialized->b << std::endl;
+	std::cout << ptr_deserialized->str << std::endl;
 	return (0);
 }

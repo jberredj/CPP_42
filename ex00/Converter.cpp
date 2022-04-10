@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:19:15 by jberredj          #+#    #+#             */
-/*   Updated: 2022/04/09 14:55:56 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/10 18:02:51 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	Converter::_valid_input(std::string &input)
 	size_t	i;
 	int		dot;
 	int		f;
+	int		sign;
 
 	if (this->_check_special_val(input))
 		return ;
@@ -63,6 +64,7 @@ void	Converter::_valid_input(std::string &input)
 	dot = 0;
 	f = 0;
 	i = (input[0] == '-' || input[0] == '+');
+	sign = i;
 	while (i < len && dot < 2 && f < 2)
 	{
 		if (f)
@@ -82,7 +84,7 @@ void	Converter::_valid_input(std::string &input)
 		i++;
 	}
 	if (f > 1 || (f == 1 && input[len - 1] != 'f')
-		|| dot > 1 || (dot && f && len < 3))
+		|| dot > 1 || (dot + f + sign >= static_cast<int>(len)))
 		throw (Converter::StringInvalid());
 	this->_type = 1 + (2 * dot) - f;
 }
@@ -187,16 +189,17 @@ void	Converter::print_all(void)
 	else
 		std::cout << this->_i_conv << std::endl;
 	
+	std::cout << std::setprecision(1) << std::fixed;
 	std::cout << "float: ";
-	if ((this->_d_conv < std::numeric_limits<float>::min() || this->_d_conv > std::numeric_limits<float>::max())
-		&& (this->_d_conv > -std::numeric_limits<float>::min() || this->_d_conv < -std::numeric_limits<float>::max()))
+	if ((this->_d_conv < -std::numeric_limits<float>::max() || this->_d_conv > std::numeric_limits<float>::max())
+		&& !(this->_d_conv > -std::numeric_limits<float>::min() || this->_d_conv < std::numeric_limits<float>::min()))
 		std::cout << "Impossible" << std::endl;
 	else
 		std::cout << this->_f_conv << 'f' << std::endl;
 
 	std::cout << "double: ";
-	if ((this->_d_conv < std::numeric_limits<double>::min() || this->_d_conv > std::numeric_limits<double>::max())
-		&& (this->_d_conv > -std::numeric_limits<double>::min() || this->_d_conv < -std::numeric_limits<double>::max()))
+	if ((this->_d_conv < -std::numeric_limits<double>::max() || this->_d_conv > std::numeric_limits<double>::max())
+		&& !(this->_d_conv > -std::numeric_limits<double>::min() || this->_d_conv < std::numeric_limits<double>::min()))
 		std::cout << "Impossible" << std::endl;
 	else
 		std::cout << this->_d_conv << std::endl;

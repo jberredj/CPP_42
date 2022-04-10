@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:48:07 by jberredj          #+#    #+#             */
-/*   Updated: 2022/04/09 10:46:24 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/10 18:03:19 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	main (int ac, char **av)
 				throw(Converter::StringInvalid());
 			conv.convert_str(av[i]);
 			conv.print_all();
-			std::cout << std::endl;
 		}
 		catch(const std::exception& e)
 		{
