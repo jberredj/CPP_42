@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.cpp                                           :+:      :+:    :+:   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:28:37 by jberredj          #+#    #+#             */
-/*   Updated: 2022/01/12 20:31:06 by jberredj         ###   ########.fr       */
+/*   Updated: 2022/04/16 18:06:53 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <exception>
 #include <algorithm>
 #include <iterator>
-#include "span.hpp"
+#include "Span.hpp"
 
 Span::Span(void)
 : _max_stored(0)
@@ -50,7 +50,7 @@ void	Span::addNumber(int nbr)
 	this->_values.push_back(nbr);
 }
 
-void	Span::it_addNumber(std::vector<int>::iterator begin,
+void	Span::addNumber(std::vector<int>::iterator begin,
 							std::vector<int>::iterator end)
 {
 	std::vector<int>	i_vec(begin, end);
@@ -72,9 +72,9 @@ int	Span::shortest_span( void ) const
 	shortest_find = abs(*(sorted.begin() + 1) - *(sorted.begin()));
 	if (sorted.size() == 2)
 		return (shortest_find);
-	for (std::vector<int>::iterator it = (sorted.begin() + 1); it != sorted.end() && shortest_find; it++)
+	for (std::vector<int>::iterator it = sorted.begin(); it + 1 != sorted.end() && shortest_find; it++)
 	{
-		if (*(it + 1) - *it < shortest_find)
+		if (abs(*(it + 1) - *it) < shortest_find)
 			shortest_find = abs(*(it + 1) - *it);
 	}
 	return (shortest_find);
@@ -91,12 +91,12 @@ int	Span::longest_span( void ) const
 	return abs(*(sorted.end() - 1) - *(sorted.begin()));
 }
 
-int	Span::get_stored(void)
+int	Span::get_stored(void) const
 {
 	return (this->_values.size());
 }
 
-int	Span::get_max_stored(void)
+int	Span::get_max_stored(void) const
 {
 	return (this->_max_stored);
 }
